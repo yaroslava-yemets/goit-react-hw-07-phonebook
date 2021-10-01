@@ -13,6 +13,11 @@ export const deleteContact = createAction('contacts/delete');
 
 export const changeFilter = createAction('contacts/changeFilter');
 
+export const fetchContactRequest = createAction('contacts/fetchContactRequest');
+export const fetchContactSuccess = createAction('contacts/fetchContactSuccess');
+export const fetchContactError = createAction('contacts/fetchContactError');
+
+
 // export const addContact = (name, number) => ({
 //     type: types.ADD,
 //     payload: {
