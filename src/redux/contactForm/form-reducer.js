@@ -2,8 +2,6 @@ import { combineReducers } from 'redux';
 import { createReducer } from '@reduxjs/toolkit';
 import * as actions from './form-actions';
 
-console.log(actions.deleteContact.type);
-
 const items = createReducer([], {
     [actions.addContact]: (state, { payload }) => [...state, payload],
     [actions.deleteContact]: (state, { payload }) => state.filter(contact => contact.id !== payload),
@@ -13,6 +11,20 @@ const filter = createReducer('', {
     [actions.changeFilter]: (_, action) => action.payload,
 });
 
+const entities = createReducer([], {
+  [actions.fetchContactSuccess]: (_, action) => action.payload
+});
+
+const isLoading = createReducer(false, {
+  [actions.fetchContactRequest]: () => true,
+  [actions.fetchContactSuccess]: () => false,
+  [actions.fetchContactError]: () => false,
+})
+
+const error = createReducer(null, {
+  [actions.fetchContactError]: (_, action) => action.payload,
+  [actions.fetchContactRequest]: () => null,
+})
 
 // const items = (state = [], {type, payload}) => {
 //     switch(type) {
@@ -37,8 +49,16 @@ const filter = createReducer('', {
 //             return state;
 //     }
 // };
-  
+
 export default combineReducers({
+  entities,
+  isLoading,
+  error,
   items,
-  filter  
 });
+  
+// export default combineReducers({
+//   items,
+//   filter, 
+// });
+
