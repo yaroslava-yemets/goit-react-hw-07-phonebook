@@ -1,9 +1,8 @@
-import * as contactsActions from './form-actions';
 import * as contactsApi from '../../services/contactsApi';
 import * as formActions from './form-actions';
 
-const fetchContacts = () => async dispatch => {
-    dispatch(contactsActions.fetchContactRequest())
+export const fetchContacts = () => async dispatch => {
+    dispatch(formActions.fetchContactRequest())
 
     try {
         const contacts = await contactsApi.fetchContacts();
