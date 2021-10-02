@@ -1,31 +1,30 @@
 import { combineReducers } from 'redux';
-
-import { fetchContacts } from './contact-operations';
 import { createReducer } from '@reduxjs/toolkit';
-import * as actions from './form-actions';
+import { fetchContacts } from './contacts-operations';
+// import * as actions from './form-actions';
 
 // const items = createReducer([], {
 //     [actions.addContact]: (state, { payload }) => [...state, payload],
 //     [actions.deleteContact]: (state, { payload }) => state.filter(contact => contact.id !== payload),
 // });
 
-const filter = createReducer('', {
-    [actions.changeFilter]: (_, action) => action.payload,
-});
+// const filter = createReducer('', {
+//     [actions.changeFilter]: (_, action) => action.payload,
+// });
 
 const entities = createReducer([], {
-  [actions.fetchContactSuccess]: (_, action) => action.payload
+  [fetchContacts.fulfilled]: (_, action) => action.payload,
 });
 
 const isLoading = createReducer(false, {
-  [actions.fetchContactRequest]: () => true,
-  [actions.fetchContactSuccess]: () => false,
-  [actions.fetchContactError]: () => false,
+  [fetchContacts.pending]: () => true,
+  [fetchContacts.fulfilled]: () => false,
+  [fetchContacts.rejected]: () => false,
 })
 
 const error = createReducer(null, {
-  [actions.fetchContactError]: (_, action) => action.payload,
-  [actions.fetchContactRequest]: () => null,
+  [fetchContacts.rejected]: (_, action) => action.payload,
+  [fetchContacts.pending]: () => null,
 })
 
 // const items = (state = [], {type, payload}) => {

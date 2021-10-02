@@ -4,10 +4,14 @@ import * as formActions from './form-actions';
 
 export const fetchContacts = createAsyncThunk(
   'contacts/fetchContacts',
-  async () => {
-    const contacts = await contactsApi.fetchContacts();
-    return contacts;
-  }
+  async (_, { rejectWithValue }) => {
+    try {
+      const contacts = await contactsApi.fetchContacts();
+      return contacts;
+    } catch (error) {
+      return rejectWithValue(error)
+    }
+  },
 );
 
 // ====  without redux thunk
