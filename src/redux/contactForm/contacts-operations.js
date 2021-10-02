@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import * as contactsApi from 'services/contactsApi';
+import shortid from 'shortid';
 import * as formActions from './form-actions';
 
 export const fetchContacts = createAsyncThunk(
@@ -13,6 +14,19 @@ export const fetchContacts = createAsyncThunk(
     }
   },
 );
+
+export const addContact = createAsyncThunk(
+  'contacts/fetchContacts',
+  async (name, number) => {
+    try {
+      const contacts = await contactsApi.addContact(name, number);
+      return contacts;
+    } catch (error) {
+      return error
+    }
+  },
+);
+
 
 // ====  without redux thunk
 

@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import * as formActions from 'redux/contactForm/form-actions';
+import { contactsOperations, contactsSelectors } from 'redux/contactForm';
+import * as contactsApi from 'services/contactsApi';
 import shortid from 'shortid';
 import s from './ContactForm.module.css';
 
@@ -27,7 +29,9 @@ function ContactForm ({ contacts, onSubmit }) {
         if(foundNames.includes(lowerName)){
          return alert(`${name} is already in contacts`);
         }
-          onSubmit(name, number);
+        //   onSubmit(name, number);
+        contactsApi.addContact(name, number);
+
     };
 
     const handleSubmit = (evt) => {
@@ -80,11 +84,11 @@ function ContactForm ({ contacts, onSubmit }) {
 };
 
 const mapStateToProps = state => ({
-    contacts: state.contacts.items,
+    contacts: state.contacts.entities,
 });
 
 const mapDispatchToProps = dispatch => ({
-    onSubmit: (name, number) => dispatch(formActions.addContact(name, number)),
+    onSubmit: (name, number) => dispatch(contactsOperations.addContacts(name, number)),
 });
 
 // ContactForm.propTypes = {

@@ -12,15 +12,14 @@ export async function fetchContacts() {
 
 let id = shortid();
 
-export async function addContact() {
+export async function addContact(name, number) {
     console.log('add contact');
     const response = await axios.post('/contacts', {
-        id: `${id}`,
-        name: 'Fred',
-        number: '4656578699'
+        id: `${shortid()}`,
+        name,
+        number,
       });
       console.log(response);
-      return id;
 };
 
 export async function deleteContact(id) {
