@@ -1,4 +1,6 @@
 import { combineReducers } from 'redux';
+
+import { fetchContacts } from './contact-operations';
 import { createReducer } from '@reduxjs/toolkit';
 import * as actions from './form-actions';
 

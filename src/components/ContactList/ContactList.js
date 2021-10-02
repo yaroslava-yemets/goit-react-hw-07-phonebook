@@ -1,24 +1,29 @@
-import { connect, useDispatch } from 'react-redux';
+import { connect, useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
-import * as formOperations from '../../redux/contactForm/ form-operations';
-import * as formActions from '../../redux/contactForm/form-actions';
+import { contactsOperations, contactsSelectors } from 'redux/contactForm';
+import * as formActions from 'redux/contactForm/form-actions';
 import s from './ContactList.module.css';
 
-const ContactList = ({contacts, onDeleteContact }) => {
+const ContactList = ({ onDeleteContact }) => {
     const dispatch = useDispatch();
+    const contacts = useSelector(contactsSelectors.getContacts);
 
-    useEffect(() => dispatch(formOperations.fetchContacts), [])
-    return ( <div></div>
-        // <ul className={s.list}>
-        //     {contacts.map(({ id, name, number }) => (
-        //         <li key={id} className={s.item}>
-        //             <span>{name}:</span>
-        //             <span>{number}</span>
-        //             <button type="button" onClick={() => onDeleteContact(id)}>Delete</button>
-        //         </li>
-        //     ))}
-        // </ul>
+    useEffect(() => dispatch(contactsOperations.fetchContacts()), [dispatch])
+    return (
+        <>
+        {contacts.length > 0 && (
+            <ul className={s.list}>
+                {contacts.map(({ id, name, number }) => (
+                    <li key={id} className={s.item}>
+                        <span>{name}:</span>
+                        <span>{number}</span>
+                        <button type="button" onClick={() => onDeleteContact(id)}>Delete</button>
+                    </li>
+                ))}
+            </ul>
+        )}
+        </>
     )
 };
 
