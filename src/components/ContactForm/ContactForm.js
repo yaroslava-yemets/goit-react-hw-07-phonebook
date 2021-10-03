@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { contactsOperations } from 'redux/contactForm';
+import { contactsOperations, contactsSelectors } from 'redux/contactForm';
 import shortid from 'shortid';
 import s from './ContactForm.module.css';
 
@@ -84,8 +84,8 @@ function ContactForm ({ contacts, onSubmit, isLoading }) {
 };
 
 const mapStateToProps = state => ({
-    contacts: state.contacts.items,
-    isLoading: state.contacts.loading,
+    contacts: contactsSelectors.getContacts(state),
+    isLoading: contactsSelectors.getIsLoading(state),
 });
 
 const mapDispatchToProps = dispatch => ({

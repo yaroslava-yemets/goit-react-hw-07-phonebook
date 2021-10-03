@@ -1,14 +1,24 @@
 {
   "contacts": [
     {
-      "name": "Yaroslava",
-      "number": "05976479",
-      "id": 1
+      "name": "maria",
+      "number": "8777466352",
+      "id": 2
     },
     {
-      "name": "maria",
+      "name": "anna",
+      "number": "777478585",
+      "id": 4
+    },
+    {
+      "name": "катя",
       "number": "05976479",
-      "id": 2
+      "id": 5
+    },
+    {
+      "name": "марина",
+      "number": "05976479",
+      "id": 6
     }
   ]
 }

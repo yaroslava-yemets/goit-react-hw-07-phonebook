@@ -1,5 +1,3 @@
-import { createAsyncThunk } from '@reduxjs/toolkit'
-import * as contactsApi from 'services/contactsApi';
 import { 
   addContactError, 
   addContactSuccess, 
@@ -11,8 +9,8 @@ import {
   fetchContactsSuccess,
   fetchContactsRequest, 
 } from './contacts-actions';
-
 import axios from "axios";
+
 axios.defaults.baseURL = 'http://localhost:3000';
 
 export const fetchContacts = () => dispatch => {
