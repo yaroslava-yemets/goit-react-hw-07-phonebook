@@ -10,20 +10,14 @@ export async function fetchContacts() {
     return data;
 };
 
-let id = shortid();
-
-export async function addContact(name, number) {
+export async function addContact(contact) {
     console.log('add contact');
-    const response = await axios.post('/contacts', {
-        id: `${shortid()}`,
-        name,
-        number,
-      });
-      console.log(response);
+    const { data } = await axios.post('/contacts', contact);
+    return data;
 };
 
 export async function deleteContact(id) {
     console.log('delete contact');
-    const response = await axios.delete(`/contacts/${id}`)
-    console.log(response);
+    const { data } = await axios.delete(`/contacts/${id}`)
+    return data;
 };

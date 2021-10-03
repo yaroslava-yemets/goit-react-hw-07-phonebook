@@ -1,54 +1,14 @@
 {
   "contacts": [
     {
-      "id": 1,
-      "name": "yaroslava",
-      "number": "99887766"
+      "name": "Yaroslava",
+      "number": "05976479",
+      "id": 1
     },
     {
-      "id": "gBqEhKzdw",
-      "name": "Fred",
-      "number": "4656578699"
-    },
-    {
-      "id": "IPN1Ltr0E",
-      "name": "Fred",
-      "number": "4656578699"
-    },
-    {
-      "id": "dbVtC6ZIl",
-      "name": "Fred",
-      "number": "4656578699"
-    },
-    {
-      "id": "OvgnISJ0q",
-      "name": "Fred",
-      "number": "4656578699"
-    },
-    {
-      "id": "zTD2wkc0K",
-      "name": "Fred",
-      "number": "4656578699"
-    },
-    {
-      "id": "CzhhKT9W4",
-      "name": "Fred",
-      "number": "4656578699"
-    },
-    {
-      "id": "Xdv9kZj_z",
-      "name": "Fred",
-      "number": "4656578699"
-    },
-    {
-      "id": "xdn6bmmUO",
-      "name": "Fred",
-      "number": "4656578699"
-    },
-    {
-      "id": "EgbvA2s-mt",
       "name": "maria",
-      "number": "8888888"
+      "number": "05976479",
+      "id": 2
     }
   ]
 }

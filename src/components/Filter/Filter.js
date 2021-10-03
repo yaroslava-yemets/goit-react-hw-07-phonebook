@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import * as formActions from '../../redux/contactForm/form-actions';
+import * as contactsActions from '../../redux/contactForm/contacts-actions';
 import shortid from 'shortid';
 import s from './Filter.module.css';
 
@@ -28,7 +28,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    onChange: evt => dispatch(formActions.changeFilter(evt.target.value)),
+    onChange: evt => dispatch(contactsActions.changeFilter(evt.target.value)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Filter);
